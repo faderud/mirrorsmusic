@@ -3,10 +3,50 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="refresh" content="0; url=https://www.instagram.com/reel/Dfo_iY5xtvM">
     <link rel="canonical" href="https://www.instagram.com/reel/Dfo_iY5xtvM">
     <title>Mirrors</title>
-    <script>location.replace("https://www.instagram.com/reel/Dfo_iY5xtvM")</script>
+    <script>
+      (function () {
+        var DEST = "https://www.instagram.com/reel/Dfo_iY5xtvM";
+        var redirected = false;
+        var fallback;
+
+        function go() {
+          if (redirected) return;
+          redirected = true;
+          clearTimeout(fallback);
+          location.replace(DEST);
+        }
+
+        // Redirect eventually if analytics is blocked or slow
+        fallback = setTimeout(go, 2500);
+
+        window.trackThenRedirect = function () {
+          if (window.sa_pageview) {
+            window.sa_pageview(window.location.pathname, function () {
+              go();
+            });
+          } else {
+            go();
+          }
+        };
+      })();
+    </script>
+    <!-- Simple Analytics - 100% privacy-first analytics -->
+    <script
+      async
+      data-auto-collect="false"
+      onload="trackThenRedirect()"
+      src="https://scripts.simpleanalyticscdn.com/latest.js"
+    ></script>
+    <noscript>
+      <meta http-equiv="refresh" content="0; url=https://www.instagram.com/reel/Dfo_iY5xtvM">
+      <img
+        src="https://queue.simpleanalyticscdn.com/noscript.gif"
+        alt=""
+        referrerpolicy="no-referrer-when-downgrade"
+      >
+    </noscript>
   </head>
   <body>
     <p><a href="https://www.instagram.com/reel/Dfo_iY5xtvM">Continue</a></p>
